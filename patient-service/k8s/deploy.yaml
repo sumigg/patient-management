@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: patient-service
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      pod: patient-service-pod
+  template:
+    metadata:
+      labels:
+        pod: patient-service-pod
+    spec:
+      containers:
+        - name: patient-service-container
+          image: docker.io/withsumitaggarwal/patient-service:1.0.4m
